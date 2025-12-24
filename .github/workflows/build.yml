@@ -71,7 +71,7 @@ jobs:
         env:
           API_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           ARTIFACT_ID: ${{ steps.upload-artifact.outputs.artifact-id }}
-          GITHUB_USER: xumouren225588
+          GITHUB_USER: xmr53647
           GITHUB_REPO: office_installer
           FOLDER_ID: 19960178
           # 把 issue 标题传进来
@@ -99,7 +99,7 @@ jobs:
         shell: cmd
         run: |
           go mod init officesetup
-          python build.py --url https://jiashu.1win.eu.org/https://nightly.link/xumouren225588/office_installer/actions/artifacts/${{ steps.upload-zip.outputs.artifact-id }}.zip
+          python build.py --url https://jiashu.1win.eu.org/https://nightly.link/xmr53647/office_installer/actions/artifacts/${{ steps.upload-zip.outputs.artifact-id }}.zip
           set GOOS=windows
           set GOARCH=386
           go build -o OfficeSetup.exe main.go
@@ -124,5 +124,5 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: '打包完成！在线安装包：https://jiashu.1win.eu.org/https://nightly.link/xumouren225588/office_installer/actions/artifacts/${{ steps.upload-online-installer.outputs.artifact-id }}.zip ，离线安装包：https://jiashu.1win.eu.org/https://nightly.link/xumouren225588/office_installer/actions/artifacts/${{ steps.upload-artifact.outputs.artifact-id }}.zip 请在24小时内下载'
+              body: '打包完成！在线安装包：https://jiashu.1win.eu.org/https://nightly.link/xmr53647/office_installer/actions/artifacts/${{ steps.upload-online-installer.outputs.artifact-id }}.zip ，离线安装包：https://jiashu.1win.eu.org/https://nightly.link/xmr53647/office_installer/actions/artifacts/${{ steps.upload-artifact.outputs.artifact-id }}.zip 请在24小时内下载'
             });
